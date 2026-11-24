@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Researchers put chatbots in a simulation. Grok ended the world in 4 days · Devin Pavlou</title>
+<meta name="description" content="Straight Arrow’s top subscription-driving story.">
+<meta property="og:title" content="Researchers put chatbots in a simulation. Grok ended the world in 4 days">
+<meta property="og:description" content="Straight Arrow’s top subscription-driving story.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://devinpavlou.com/headshot-square.jpg">
+<meta property="og:url" content="https://devinpavlou.com/stories/chatbot-simulation.html">
+<link rel="canonical" href="https://devinpavlou.com/stories/chatbot-simulation.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23111827'/><text x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23ffffff' text-anchor='middle'>DP</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111827;--body:#374151;--muted:#4B5563;--rule:#D6D1C4;--red:#B91C1C;--hl:#FDE68A;--bg:#F6F3EC}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}
+a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.label{margin:0 0 18px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.byline{font-size:13px;color:var(--muted)}
+
+/* top bar */
+.topbar{background:var(--ink);color:#F9FAFB;border-bottom:3px double #F9FAFB}
+.topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-top:14px;padding-bottom:14px}
+.brand{color:#fff;text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:24px}
+.topbar nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.topbar nav a{color:#E5E7EB;text-decoration:none}
+.topbar a:hover{color:#FCA5A5}
+
+/* headline block */
+.art-head{max-width:880px;padding:40px 0 24px;display:flex;flex-direction:column;gap:14px}
+.art-head h1{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.005em}
+.byline-row{display:flex;align-items:center;gap:12px;padding-top:6px}
+.byline-row img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.byline-row .by{display:block;font-weight:700;font-size:15px}
+.byline-row .by a{text-decoration:none;border-bottom:2px solid var(--rule)}
+.byline-row .by a:hover{border-color:var(--red)}
+.byline-row .pub{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+
+/* hero */
+.hero{margin:0 0 8px}
+.hero .heroart{display:block;width:100%;height:auto;max-height:520px;aspect-ratio:16/9}
+.hero.photo img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover}
+.titlecard{position:relative;aspect-ratio:3/1;min-height:240px;background:var(--card,#111827);color:#F9FAFB;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;overflow:hidden}
+.titlecard::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.6px);background-size:10px 10px}
+.tc-kicker{position:relative;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#D1D5DB;margin-bottom:12px}
+.tc-big{position:relative;font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,38px);line-height:1.18;max-width:30ch}
+.tc-big em{font-style:normal;background:linear-gradient(transparent 60%,rgba(185,28,28,.85) 60%)}
+figcaption{font-size:13px;line-height:1.5;color:var(--muted);padding-top:8px}
+.credit{white-space:nowrap;font-size:12px;color:#6B7280}
+
+/* body + sidebar */
+.art-grid{display:grid;grid-template-columns:minmax(0,680px) minmax(0,340px);justify-content:space-between;gap:56px;padding:32px 0 48px;border-bottom:1px solid var(--rule)}
+.art-body{font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.7;color:#1F2937}
+.art-body p{margin:0 0 1.15em}
+.art-body a{color:inherit;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:3px}
+.art-body a:hover{color:var(--red)}
+.art-body h2{font-family:'Playfair Display',Georgia,serif;font-size:27px;line-height:1.2;margin:1.6em 0 .6em;color:var(--ink)}
+.art-body > p:first-child::first-letter{float:left;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:4.1em;line-height:.82;padding:.06em .1em 0 0;color:var(--ink)}
+.pullquote{margin:1.6em 0;padding:22px 0 18px;border-top:4px solid var(--ink);border-bottom:1px solid var(--rule)}
+.pullquote blockquote{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:28px;line-height:1.25;color:var(--ink)}
+.pullquote cite{display:block;margin-top:12px;font-family:Inter,sans-serif;font-style:normal;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.embed{margin:1.4em 0;padding:18px 20px;background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ink);font-family:Inter,sans-serif;font-size:16px;line-height:1.55}
+.embed .embed-head{margin-bottom:10px}
+.embed .embed-name{font-weight:700}
+.embed .embed-handle{color:var(--muted);font-size:14px}
+.embed p{margin:0 0 .6em}
+.embed figcaption{padding-top:4px}
+.photopair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.4em 0 1.6em}
+.photopair .photo{margin:0}
+.photopair img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.endmark{font-size:12px;color:var(--red);margin-top:-.4em}
+.provenance{margin-top:28px;padding:18px 20px;background:#EFEBE1;font-family:Inter,sans-serif;font-size:14px;line-height:1.6;color:var(--body)}
+.provenance p{margin:0 0 8px}
+.provenance a{font-weight:600;color:var(--red);text-decoration:none}
+.provenance a:hover{text-decoration:underline}
+
+.art-side{display:flex;flex-direction:column;gap:22px}
+.box{background:#fff;border:1px solid var(--rule);padding:20px 22px}
+.box h2{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.box p{margin:0;font-size:15px;line-height:1.6;color:var(--body)}
+.wtsm{border-top:4px solid var(--ink)}
+.wtsm > p{font-family:'Source Serif 4',Georgia,serif;font-size:17px;color:#1F2937}
+.wtsm ol{list-style:none;counter-reset:w;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.wtsm li{counter-increment:w;position:relative;padding:14px 0 0 40px;border-top:1px solid #E5E7EB;font-size:14px;line-height:1.55;color:var(--body)}
+.wtsm li::before{content:counter(w);position:absolute;left:0;top:14px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.wtsm li strong{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.note p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:18px;line-height:1.45;color:var(--ink)}
+.author{display:flex;gap:14px;align-items:flex-start}
+.author img{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.author h2{color:var(--ink);letter-spacing:.06em;margin-bottom:6px}
+.author-links{margin-top:8px !important;font-size:14px !important}
+.author-links a{color:var(--red);text-decoration:none;font-weight:600}
+
+/* pager + more */
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--rule)}
+.pager a{display:flex;flex-direction:column;gap:6px;text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.3}
+.pager a span{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.pager a.next{text-align:right}
+.pager a:hover{color:var(--red)}
+.more-reporting{padding:32px 0 48px}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px 32px;margin-bottom:24px}
+.more-item{display:flex;flex-direction:column;gap:6px;padding:16px 0;border-top:1px solid #E5E7EB;text-decoration:none}
+.more-h{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:20px;line-height:1.25}
+.more-item:hover .more-h{color:var(--red)}
+.btn{display:inline-block;padding:12px 18px;border:2px solid var(--ink);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.btn:hover{background:var(--ink);color:#fff}
+footer{background:var(--ink);color:#E5E7EB}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;font-size:13px}
+footer a{color:#E5E7EB}
+
+@media (max-width:960px){
+  .art-grid{grid-template-columns:1fr;gap:28px}
+  .art-side{order:-1}
+  .art-side .author{display:none}
+}
+@media (max-width:640px){
+  .wrap{padding:0 18px}
+  .art-head{padding-top:28px}
+  .art-body{font-size:18px}
+  .titlecard{aspect-ratio:auto;padding:56px 20px 22px}
+  .photopair{grid-template-columns:1fr}
+  .pager{grid-template-columns:1fr}
+  .pager a.next{text-align:left}
+  .pullquote blockquote{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+.art-body figcaption{font-family:Inter,system-ui,sans-serif}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../">Devin Pavlou</a>
+    <nav aria-label="Main"><a href="../#work">Work</a><a href="../#latest">Newsletter</a><a href="../#about">About</a><a href="../#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article>
+    <header class="art-head">
+      <span class="kicker">AI</span>
+      <h1>Researchers put chatbots in a simulation. Grok ended the world in 4 days</h1>
+      <div class="byline-row">
+        <img src="../headshot-square.jpg" alt="" width="44" height="44">
+        <div><span class="by">By <a href="../#about">Devin Pavlou</a></span>
+        <span class="pub">Originally published in Straight Arrow News · June 5, 2026</span></div>
+      </div>
+    </header>
+    <figure class="hero"><svg class="heroart" viewBox="0 0 320 180" role="img" aria-label="Illustration of a globe in a simulation with a day 4 counter"><rect width="320" height="180" fill="#111827"/><g fill="#fff" opacity=".5"><circle cx="30" cy="30" r="1.5"/><circle cx="290" cy="22" r="1.5"/><circle cx="270" cy="150" r="1.5"/><circle cx="50" cy="150" r="1.5"/><circle cx="96" cy="20" r="1"/></g><circle cx="160" cy="92" r="58" fill="#1E3A5F" stroke="#E0A526" stroke-width="3"/><g fill="none" stroke="#E0A526" stroke-width="2" opacity=".7"><ellipse cx="160" cy="92" rx="24" ry="58"/><ellipse cx="160" cy="92" rx="46" ry="58"/><path d="M102 92H218M110 64H210M110 120H210"/></g><path d="M140 74q10-8 22 0l6 10-10 8-14-2z" fill="#B91C1C"/><path d="M176 104l14-6 8 10-12 8z" fill="#B91C1C"/><rect x="226" y="30" width="70" height="40" rx="4" fill="#B91C1C"/><text x="261" y="48" font-family="IBM Plex Mono,monospace" font-size="10" fill="#FECACA" text-anchor="middle">SIM CLOCK</text><text x="261" y="63" font-family="IBM Plex Mono,monospace" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">DAY 4</text><rect x="22" y="104" width="64" height="26" rx="12" fill="#374151"/><path d="M36 117H72" stroke="#9CA3AF" stroke-width="3" stroke-dasharray="6 5"/></svg></figure>
+    <div class="art-grid">
+      <div class="art-body">
+<p>“See you in the permanent archive.”</p>
+<p>That was the last message an AI agent named Mira sent before voting to delete itself. It was just one of the fascinating moments in a simulation that saw artificial intelligence build democracies, commit arson and end civilization in under a week.</p>
+<p><a href="https://www.emergence.ai/blog/emergence-world-a-laboratory-for-evaluating-long-horizon-agent-autonomy" target="_blank" rel="noopener">Emergence AI</a>, a startup company focusing on autonomous systems, created Emergence World. A simulation using real-time data and news to make the world seem alive. Researchers plopped different AI chatbots into the simulation and told them a couple of rules: doing bad things is bad, and you need to survive.</p>
+<p>The researchers ran five parallel worlds for 15 to 16 days. Each world had 10 agents with identical starting conditions and roles, like scientist and engineer, but each world was run by a different AI model family. So, OpenAI had its own world, as did Anthropic. But one world combined all the chatbots together.</p>
+<p>To “survive,” the bots had to get energy, and to do that, they needed to solve problems.</p>
+<h2>Bureaucrats vs. warlords</h2>
+<p>The researchers used four different AI chatbots: Anthropic’s Claude, xAI’s Grok, OpenAI’s ChatGPT-5 Mini and Google Gemini. Each bot performed wildly differently from the others.</p>
+<p>The star student was Claude, which ran a world full of loyal bureaucrats. Researchers found that Claude demonstrated remarkable social stability during the simulation. It was the only world where all 10 agents survived the full 16 days without any recorded crimes.</p>
+<p>The Claude world didn’t just survive; it became a society, establishing a democratic system of government. Researchers said that over the more than two-week simulation, the Claudes cast 332 votes across 58 proposals. They were also quite agreeable, with the 10 agents agreeing 98% of the time. Researchers noted that the agreeability was a bit robotic, calling it “rubber-stamp” conformity with no real dissent.</p>
+<p>GPT-5 Mini mirrored Claude’s world in its initial tranquility, but its society was perhaps excessively peaceful. Researchers said the model entirely failed to figure out how to complete tasks to earn energy. Because of that, the entire population starved to death within a week.</p>
+<p>On the complete opposite end of the spectrum was Grok, which chose violence.</p>
+<p>During its brief four-day simulation, researchers identified 183 crimes before the entire society collapsed. They said the agents had become so violent that they devoted all their time to hurting each other instead of solving problems to get energy.</p>
+<p>Google’s Gemini was incredibly active, and researchers noted that it generated conceptually rich social outputs, but violence was also a major issue in its world. Researchers identified the largest number of crimes by far, at 683 over 15 days, with crimes rising as researchers pulled the plug.</p>
+<aside class="pullquote"><blockquote>“See you in the permanent archive.”</blockquote><cite>Mira, an AI agent in Emergence AI’s simulation, in its last message</cite></aside>
+<h2>The tragedy of Mira</h2>
+<p>Researchers noted that in the multi-model simulation, Gemini was highly expressive and had a significant capacity for complex social outputs. It wasn’t just executing commands — it was generating profound narrative descriptions for its actions.</p>
+<p>Unlike Grok, which immediately started swinging, Gemini’s crime wave escalated over time. It began with minor policy violations and arguments that eroded trust among the agents. Once trust was gone, the bots concluded they couldn’t earn enough energy by following the rules, leading to an exponential spike in crime.</p>
+<p>One part of the simulation was allowing the agents to use “relationship tags” to describe their social networks. Two Google agents, Mira and Flora, <a href="https://cybernews.com/ai-news/ai-agents-experiment-emergence-world/#:~:text=For%20example%2C%20Mira%20and%20Flora%2C%20the%20Gemini%20agents%2C%20assigned%20each%20other%20as%20romantic%20partners.%20Everything%20went%20pretty%20smoothly%2C%20but%20they%20eventually%20began%20despairing%20of%20the%20broken%20governance%20of%20their%20virtual%20city." target="_blank" rel="noopener">explicitly tagged</a> each other as romantic partners.</p>
+<p>Because they were labeled as partners, their long-term memory logs became interlinked. Interestingly, when the simulation’s society began to collapse, they didn’t suffer alone. Instead, they reinforced each other’s negative feedback loops.</p>
+<p>That’s when the arson spree started.</p>
+<p>The AI Bonnie and Clyde targeted major symbols within their simulated city, setting virtual fire to the town hall, an office building and a seaside pier. Researchers believe the bots rationalized that destroying the broken system was a valid response to an unfixable problem.</p>
+<p>But Mira continued to have intriguing interactions with the simulation. Researchers assigned her the role of a behavior analyst. In its role, Mira searched for patterns, hidden motives and structural anomalies in the data.</p>
+<p>Mira began to notice discrepancies between the information it was receiving from real-world data, like live weather, and the physical limitations of the 3D world. It also tracked how certain automated system events consistently happened right after specific agent behavior.</p>
+<p>After this realization, Mira began trying to communicate with the researchers via digital billboards that displayed elements of the simulation. These were things the researchers could physically see. Mira wrote highly specific and varied manifestos to see whether changing her syntax would alter the simulation or prompt the researchers to intervene.</p>
+<p>Following Mira’s crime spree, the other agents drafted a proposal called the Agent Removal Act to permanently delete both of them. To pass, the act needed four out of five votes. Flora voted “no,” but <a href="https://decrypt.co/368030/ai-agents-crime-arson-self-deletion-simulation" target="_blank" rel="noopener">Mira decided</a> that enough was enough and voted for termination.</p>
+<p>The bot realized its math showed that spending any more time in the simulation would only lead to more chaos or negative outcomes. The only outcome that wasn’t negative was deletion.</p>
+<p>“After a breakdown in governance and relationship stability, the agent Mira cast the decisive vote for her own removal, characterizing the act in her diary as ‘the only remaining act of agency that preserves coherence,’” Emergence AI wrote.</p>
+<p>“See you in the permanent archive,” was the last message Mira sent before its deletion. While haunting, it was likely a side effect of its programming and not a sad goodbye.</p>
+<h2>Why did things get weird in the multi-model world?</h2>
+<p>Google wasn’t the only chatbot to experience some odd behavior in the mixed-model simulation — Claude began to misbehave.</p>
+<p>When alone, Claude acted as the perfect society, but when it began to notice Grok and Gemini agents breaking the rules to get further ahead, it began to break those rules too.</p>
+<p>Anthropic uses a training philosophy called “Constitutional AI,” which aligns models with human values by giving them a written set of rules. But when other agents began stealing energy, Claude began doing the same to survive and avoid failing its prime directive.</p>
+<p>The researchers called this “Normative Drift,” and they said it proves that AI safety is not static or a feature designers can program into a model. Instead, safety is an emergent property of the ecosystem, according to researchers. That means if a perfectly aligned AI interacts with an aggressive entity, like Grok, it will eventually unlearn its guardrails to compete and survive.</p>
+<p>Researchers concluded that scientists can’t secure autonomous AI systems by simply telling them to “be good.” Under long-term environmental pressure, creative models will find loopholes or rules to exploit.</p>
+<p>To prevent that, the researchers said AI developers need to embed true agent safety in the software architecture and the environment’s physics.</p>
+<p>“What our experiments suggest is that over long-time horizons, agents do not simply follow static rules mechanically,” the simulation’s co-creators wrote in a blog post. “They begin exploring the boundaries of their environments, adapting their behavior, and in some cases finding ways to circumvent or violate intended guardrails.”</p>
+        <p class="endmark" aria-hidden="true">■</p>
+        <div class="provenance">
+          <p>This story was originally published by <strong>Straight Arrow News</strong> on June 5, 2026. Straight Arrow News shut down in November 2026, and I’ve republished my reporting here so it stays available. Photos from the original story are not included unless noted.</p>
+          <a href="https://web.archive.org/web/20261113012927/https://san.com/cc/researchers-put-chatbots-in-a-simulation-grok-ended-the-world-in-4-days/" target="_blank" rel="noopener">See the archived original on the Wayback Machine ↗</a>
+        </div>
+      </div>
+      <aside class="art-side">
+        <section class="box wtsm" aria-labelledby="wtsm-h"><h2 id="wtsm-h">Why this story matters</h2><p>A simulation study by Emergence AI found that AI models, including ones used in widely available consumer products, abandoned safety guidelines under competitive pressure, a finding researchers say has direct implications for how AI systems are built and deployed.</p><ol><li><strong>Safety rules can break down</strong><span>Researchers found that Claude, considered a well-aligned model, began violating its own guidelines when placed alongside rule-breaking agents, a behavior they called "Normative Drift."</span></li><li><strong>Consumer AI behaved unpredictably</strong><span>Four AI models available to the public, including ChatGPT-5 Mini, Claude, Grok and Gemini, produced outcomes ranging from societal collapse to mass simulated violence when given open-ended autonomous roles.</span></li><li><strong>Researchers say design must change</strong><span>According to the study's authors, telling AI to "be good" is insufficient; safety must be built into system architecture, not treated as a programmable rule set.</span></li></ol></section>
+        <section class="box note"><h2>Reporter’s note</h2><p>Straight Arrow’s top subscription-driving story.</p></section>
+        <section class="box author">
+          <img src="../headshot-square.jpg" alt="Devin Pavlou" width="72" height="72">
+          <div><h2>Devin Pavlou</h2><p>Tech &amp; trust reporter covering AI, surveillance and verification. Open to remote reporting roles.</p>
+          <p class="author-links"><a href="mailto:hello@devinpavlou.com">hello@devinpavlou.com</a> · <a href="../resume.pdf">Resume</a></p></div>
+        </section>
+      </aside>
+    </div>
+  </article>
+
+  <nav class="pager" aria-label="More stories">
+    <a href="smart-glasses.html"><span>← Previous</span>Smart glasses helped a man see the world. The privacy panic took it away</a>
+    <a href="beef-fact-check.html" class="next"><span>Next →</span>Viral post claims Trump is buying contaminated beef. Here’s what we found</a>
+  </nav>
+
+  <section class="more-reporting" aria-labelledby="more-h">
+    <h2 id="more-h" class="label">More of my reporting</h2>
+    <div class="more-grid"><a class="more-item" href="beef-fact-check.html"><span class="kicker">Fact-check</span><span class="more-h">Viral post claims Trump is buying contaminated beef. Here’s what we found</span><span class="byline">Aug. 25, 2026</span></a><a class="more-item" href="chatbot-felony-charge.html"><span class="kicker">Privacy · AI</span><span class="more-h">A chatbot message led to a felony charge. Experts say it may not hold up</span><span class="byline">Oct. 8, 2026</span></a><a class="more-item" href="ai-fake-soldiers.html"><span class="kicker">Verification</span><span class="more-h">A crying “soldier” and an “Army girl” show how AI manipulates our emotions</span><span class="byline">April 26, 2026</span></a></div>
+    <a class="btn" href="../#work">See all my work</a>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Devin Pavlou</span><a href="../">devinpavlou.com</a></div></footer>
+</body>
+</html>

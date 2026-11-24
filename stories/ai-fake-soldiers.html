@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A crying “soldier” and an “Army girl” show how AI manipulates our emotions · Devin Pavlou</title>
+<meta name="description" content="After PolitiFact got a dozen fake-soldier accounts taken down, I found just as many still posting, and researchers explained the business model that keeps them coming.">
+<meta property="og:title" content="A crying “soldier” and an “Army girl” show how AI manipulates our emotions">
+<meta property="og:description" content="After PolitiFact got a dozen fake-soldier accounts taken down, I found just as many still posting, and researchers explained the business model that keeps them coming.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://devinpavlou.com/headshot-square.jpg">
+<meta property="og:url" content="https://devinpavlou.com/stories/ai-fake-soldiers.html">
+<link rel="canonical" href="https://devinpavlou.com/stories/ai-fake-soldiers.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23111827'/><text x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23ffffff' text-anchor='middle'>DP</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111827;--body:#374151;--muted:#4B5563;--rule:#D6D1C4;--red:#B91C1C;--hl:#FDE68A;--bg:#F6F3EC}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}
+a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.label{margin:0 0 18px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.byline{font-size:13px;color:var(--muted)}
+
+/* top bar */
+.topbar{background:var(--ink);color:#F9FAFB;border-bottom:3px double #F9FAFB}
+.topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-top:14px;padding-bottom:14px}
+.brand{color:#fff;text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:24px}
+.topbar nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.topbar nav a{color:#E5E7EB;text-decoration:none}
+.topbar a:hover{color:#FCA5A5}
+
+/* headline block */
+.art-head{max-width:880px;padding:40px 0 24px;display:flex;flex-direction:column;gap:14px}
+.art-head h1{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.005em}
+.byline-row{display:flex;align-items:center;gap:12px;padding-top:6px}
+.byline-row img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.byline-row .by{display:block;font-weight:700;font-size:15px}
+.byline-row .by a{text-decoration:none;border-bottom:2px solid var(--rule)}
+.byline-row .by a:hover{border-color:var(--red)}
+.byline-row .pub{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+
+/* hero */
+.hero{margin:0 0 8px}
+.hero .heroart{display:block;width:100%;height:auto;max-height:520px;aspect-ratio:16/9}
+.hero.photo img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover}
+.titlecard{position:relative;aspect-ratio:3/1;min-height:240px;background:var(--card,#111827);color:#F9FAFB;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;overflow:hidden}
+.titlecard::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.6px);background-size:10px 10px}
+.tc-kicker{position:relative;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#D1D5DB;margin-bottom:12px}
+.tc-big{position:relative;font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,38px);line-height:1.18;max-width:30ch}
+.tc-big em{font-style:normal;background:linear-gradient(transparent 60%,rgba(185,28,28,.85) 60%)}
+figcaption{font-size:13px;line-height:1.5;color:var(--muted);padding-top:8px}
+.credit{white-space:nowrap;font-size:12px;color:#6B7280}
+
+/* body + sidebar */
+.art-grid{display:grid;grid-template-columns:minmax(0,680px) minmax(0,340px);justify-content:space-between;gap:56px;padding:32px 0 48px;border-bottom:1px solid var(--rule)}
+.art-body{font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.7;color:#1F2937}
+.art-body p{margin:0 0 1.15em}
+.art-body a{color:inherit;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:3px}
+.art-body a:hover{color:var(--red)}
+.art-body h2{font-family:'Playfair Display',Georgia,serif;font-size:27px;line-height:1.2;margin:1.6em 0 .6em;color:var(--ink)}
+.art-body > p:first-child::first-letter{float:left;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:4.1em;line-height:.82;padding:.06em .1em 0 0;color:var(--ink)}
+.pullquote{margin:1.6em 0;padding:22px 0 18px;border-top:4px solid var(--ink);border-bottom:1px solid var(--rule)}
+.pullquote blockquote{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:28px;line-height:1.25;color:var(--ink)}
+.pullquote cite{display:block;margin-top:12px;font-family:Inter,sans-serif;font-style:normal;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.embed{margin:1.4em 0;padding:18px 20px;background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ink);font-family:Inter,sans-serif;font-size:16px;line-height:1.55}
+.embed .embed-head{margin-bottom:10px}
+.embed .embed-name{font-weight:700}
+.embed .embed-handle{color:var(--muted);font-size:14px}
+.embed p{margin:0 0 .6em}
+.embed figcaption{padding-top:4px}
+.photopair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.4em 0 1.6em}
+.photopair .photo{margin:0}
+.photopair img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.endmark{font-size:12px;color:var(--red);margin-top:-.4em}
+.provenance{margin-top:28px;padding:18px 20px;background:#EFEBE1;font-family:Inter,sans-serif;font-size:14px;line-height:1.6;color:var(--body)}
+.provenance p{margin:0 0 8px}
+.provenance a{font-weight:600;color:var(--red);text-decoration:none}
+.provenance a:hover{text-decoration:underline}
+
+.art-side{display:flex;flex-direction:column;gap:22px}
+.box{background:#fff;border:1px solid var(--rule);padding:20px 22px}
+.box h2{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.box p{margin:0;font-size:15px;line-height:1.6;color:var(--body)}
+.wtsm{border-top:4px solid var(--ink)}
+.wtsm > p{font-family:'Source Serif 4',Georgia,serif;font-size:17px;color:#1F2937}
+.wtsm ol{list-style:none;counter-reset:w;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.wtsm li{counter-increment:w;position:relative;padding:14px 0 0 40px;border-top:1px solid #E5E7EB;font-size:14px;line-height:1.55;color:var(--body)}
+.wtsm li::before{content:counter(w);position:absolute;left:0;top:14px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.wtsm li strong{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.note p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:18px;line-height:1.45;color:var(--ink)}
+.author{display:flex;gap:14px;align-items:flex-start}
+.author img{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.author h2{color:var(--ink);letter-spacing:.06em;margin-bottom:6px}
+.author-links{margin-top:8px !important;font-size:14px !important}
+.author-links a{color:var(--red);text-decoration:none;font-weight:600}
+
+/* pager + more */
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--rule)}
+.pager a{display:flex;flex-direction:column;gap:6px;text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.3}
+.pager a span{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.pager a.next{text-align:right}
+.pager a:hover{color:var(--red)}
+.more-reporting{padding:32px 0 48px}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px 32px;margin-bottom:24px}
+.more-item{display:flex;flex-direction:column;gap:6px;padding:16px 0;border-top:1px solid #E5E7EB;text-decoration:none}
+.more-h{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:20px;line-height:1.25}
+.more-item:hover .more-h{color:var(--red)}
+.btn{display:inline-block;padding:12px 18px;border:2px solid var(--ink);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.btn:hover{background:var(--ink);color:#fff}
+footer{background:var(--ink);color:#E5E7EB}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;font-size:13px}
+footer a{color:#E5E7EB}
+
+@media (max-width:960px){
+  .art-grid{grid-template-columns:1fr;gap:28px}
+  .art-side{order:-1}
+  .art-side .author{display:none}
+}
+@media (max-width:640px){
+  .wrap{padding:0 18px}
+  .art-head{padding-top:28px}
+  .art-body{font-size:18px}
+  .titlecard{aspect-ratio:auto;padding:56px 20px 22px}
+  .photopair{grid-template-columns:1fr}
+  .pager{grid-template-columns:1fr}
+  .pager a.next{text-align:left}
+  .pullquote blockquote{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+.art-body figcaption{font-family:Inter,system-ui,sans-serif}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../">Devin Pavlou</a>
+    <nav aria-label="Main"><a href="../#work">Work</a><a href="../#latest">Newsletter</a><a href="../#about">About</a><a href="../#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article>
+    <header class="art-head">
+      <span class="kicker">Verification</span>
+      <h1>A crying “soldier” and an “Army girl” show how AI manipulates our emotions</h1>
+      <div class="byline-row">
+        <img src="../headshot-square.jpg" alt="" width="44" height="44">
+        <div><span class="by">By <a href="../#about">Devin Pavlou</a></span>
+        <span class="pub">Originally published in Straight Arrow News · April 26, 2026</span></div>
+      </div>
+    </header>
+    <figure class="hero"><div class="titlecard" style="--card:#3F3F46"><span class="tc-kicker">Verification</span><div class="tc-big">After PolitiFact got a dozen fake-soldier accounts taken down, I found just as many still posting, and researchers explained the business model that keeps them coming.</div></div></figure>
+    <div class="art-grid">
+      <div class="art-body">
+<p>It’s the end of a long day. You’re on the couch, dogs piled around you as you mindlessly scroll through social media. Your algorithm appears to be behaving — stand-up comedy, a political take, dachshund videos. Then a video of a sobbing U.S. soldier stops you mid-scroll.</p>
+<p>But something seems off before you can say what it is. The audio has a strange muddiness that keeps it from perfectly matching the video. You look closer, and the labeling on the uniform looks off, as if the rank insignia is wrong.</p>
+<p>Then it hits you: There is no soldier, and there never was.</p>
+<p>That video is one of the many AI-generated clips depicting distressed U.S. service members that have flooded social media in recent months. They are likely not the work of foreign spy agencies but rather created to support a business model, researchers told Straight Arrow.</p>
+<p>These videos are engineered to trigger an emotional response before critical thinking has a chance to catch up — and someone gets paid every time it works.</p>
+<p>Experts who study the proliferation of AI-generated media say there are dozens of accounts posting such content. The fact-checking site <a href="https://www.politifact.com/article/2026/apr/16/US-military-iran-videos-AI-crying/" target="_blank" rel="noopener">PolitiFact previously reported</a> on the topic, saying that reporters found nearly a dozen accounts associated with this content. Social media platforms took down those accounts after PolitiFact’s inquiry, but Straight Arrow was easily able to find just as many other accounts posting the same content.</p>
+<p>The video often shows a person in uniform, in tears, talking to the camera, sometimes even yelling. The videos look authentic on the surface but users with a keen eye can see issues. Incorrect markings on uniforms or AI-generated artifacts typically belie their authenticity.</p>
+<h2>An emotional business model</h2>
+<p>Enough people have fallen for these videos to make their business model successful — and lucrative.</p>
+<p>In late 2025 and early 2026, an Instagram account belonging to “Jessica Foster” popped up online. It depicted a young woman in the military who was a vocal supporter of President Donald Trump’s “America First” movement. She called herself “an American Army girl.”</p>
+<p>Posts showed her in realistic settings, in photos that appeared to be genuine. In one, she posed with an F-22 Raptor. In another, the young woman — dressed in her Army uniform but wearing a short skirt and high heels — walked alongside Trump on an airport tarmac.</p>
+<p>The account quickly built a following of 1 million.</p>
+<p>But reports <a href="https://www.washingtonpost.com/technology/2026/03/20/jessica-foster-maga-dream-girl-ai-fake/" target="_blank" rel="noopener">later uncovered</a> that the account was fake. Its real purpose: to funnel users to paid adult content.</p>
+<p>“If you get dozens or hundreds of people to go over to an app or to an OnlyFans page,” said Daniel Schiff, an associate professor at Purdue University and the co-director of the Governance and Responsible AI Lab, “I mean, you could be talking hundreds or thousands of dollars, maybe in the tens of thousands.”</p>
+<p>The videos of crying soldiers work a little differently. Instead of serving as billboards for external revenue streams, these accounts are farms for direct platform payouts. This means that the more followers they have, the more ad revenue they can receive directly from social media companies. Schiff said these accounts can quickly gain followers.</p>
+<p>“We can see the handful of posts, up to dozens of posts, within a matter of days or weeks,” he told Straight Arrow. “Some of them are posting their monetization content pretty quickly.”</p>
+<aside class="pullquote"><blockquote>“We’re at a point where humans absolutely can’t tell the difference.”</blockquote><cite>Sarah Barrington, UC Berkeley</cite></aside>
+<h2>Why does this work on people?</h2>
+<p>The high-impact emotions portrayed in the videos aren’t just incidental; they’re the main reason the videos work so well. It’s a psychological mechanism that works better than most people want to admit.</p>
+<p>“We’re at a point where humans absolutely can’t tell the difference,” Sarah Barrington, an AI researcher and Ph.D. candidate at the University of California, Berkeley, told Straight Arrow.</p>
+<p>Barrington has <a href="https://www.nature.com/articles/s41598-025-94170-3#Sec16" target="_blank" rel="noopener">conducted studies</a> on people’s ability to detect AI-powered voice clones and found that they’re not much better at it than guessing a coin toss.</p>
+<p>“We gave a bunch of members of the public real and fake audios — hundreds of listeners, hundreds of speakers — and we found 60% of the time they couldn’t tell what was real and what was fake,” Barrington said.</p>
+<p>When they added a real voice to the mix, she said 80% couldn’t tell the difference between the generated voice and the real one. Detection gets harder when creators make content designed to make a person feel something first.</p>
+<p>“When people are elevated into this emotional state, they don’t make logical decisions,” Barrington said.</p>
+<p>It’s one of the same mechanisms fraudsters use in scams. <a href="https://www.aarp.org/content/dam/aarp/research/surveys_statistics/econ/2021/fraud-victim-susceptibility-study-report.doi.10.26419-2Fres.00484.001.pdf" target="_blank" rel="noopener">A study</a> conducted by the AARP found an emotional trend among fraud victims. Those who had fallen victim to a scam experienced more stressful events when they encountered a scam than those who had not.</p>
+<p>The obvious solution to combating AI content is more robust media and AI literacy training — but researchers don’t know if that’s enough.</p>
+<h2>Why aren’t current measures working?</h2>
+<p>Companies do have tools to catch these videos before they take off online. But they’re not working.</p>
+<p>Meta, Google, Microsoft and OpenAI formed the Coalition for Content Provenance and Authenticity or C2PA. The coalition offers a way for platforms to automatically detect and label AI-generated content.</p>
+<p>“When you generate an AI video, largely now it will have a watermark in it,” Barrington said. “When these get shared, it flags up to the platform. But most of these platforms don’t reliably use that very easy watermark.”</p>
+<p>Even if platforms note that posts are fake, that doesn’t mean users will necessarily believe it.</p>
+<p>“Just because we put up a label and say, ‘Oh, this is manipulated’ doesn’t mean people detect it or that it really keeps them from believing in false claims,” Schiff said.</p>
+<p>But issues with companies implementing their own rules may be less about technical limitations and more about financial ones.</p>
+<p>“Content drives traffic, traffic drives money,” Schiff said. “These bad actors, the spreaders, are leveraging the same kinds of strategies that social media platforms built their own engagement methods on.”</p>
+<p>Straight Arrow provided Meta with a list of AI-generated videos. The company said it’s reviewing those accounts.</p>
+<p>“Identifying AI-generated content can be challenging as the technology evolves,” the company wrote in an email. “We’re continuously working to improve our systems and ability to label this content.”</p>
+<p>It’s important to note that nearly all social media platforms have an AI content policy similar to Meta’s. Straight Arrow also found numerous AI-generated videos showing apparently fake soldiers crying on TikTok.</p>
+<h2>What can users do?</h2>
+<p>Despite the ever-evolving nature of AI, there is still hope for users trying to distinguish between fact and fiction.</p>
+<p>“I totally just come back to that who, what, where, when,” Barrington told Straight Arrow. “Can you answer these basic questions about this thing you’re sharing? I just come back to that basic media literacy.”</p>
+<p>But she stressed that this isn’t about media forensics, it’s just basic habits. The stakes of being wrong about AI-generated content are more immediate than some might realize.</p>
+<p>“You just look a bit silly,” Barrington said. “You get it wrong if you share this thing — you just lose credibility in your own social circle.”</p>
+<p>The responsibility of identifying AI content was never meant to just fall on users’ shoulders as they scroll at night. The deeper issue, researchers say, predates any individual video.</p>
+<p>“We unleashed a lot of these capabilities, certainly before we had the detection capacities, or before we had the social resilience. So we’re now reactively trying to address these issues,” Schiff said. “This is probably where I would place the bulk of the responsibility.”</p>
+        <p class="endmark" aria-hidden="true">■</p>
+        <div class="provenance">
+          <p>This story was originally published by <strong>Straight Arrow News</strong> on April 26, 2026. Straight Arrow News shut down in November 2026, and I’ve republished my reporting here so it stays available. Photos from the original story are not included unless noted.</p>
+          <a href="https://web.archive.org/web/20261113020003/https://san.com/cc/a-crying-soldier-and-an-army-girl-show-how-ai-manipulates-our-emotions/" target="_blank" rel="noopener">See the archived original on the Wayback Machine ↗</a>
+        </div>
+      </div>
+      <aside class="art-side">
+        <section class="box wtsm" aria-labelledby="wtsm-h"><h2 id="wtsm-h">Why this story matters</h2><p>AI-generated videos of fake U.S. soldiers are circulating on major social media platforms and generating real ad revenue, while detection tools that exist are not being consistently applied.</p><ol><li><strong>Detection is unreliable for users</strong><span>According to UC Berkeley research cited in the article, 60% of listeners could not distinguish real audio from AI-generated fakes, and that figure rose to 80% when a real voice was included alongside a generated one.</span></li><li><strong>Platforms profit from the content</strong><span>Researchers told Straight Arrow that fake accounts earn direct ad revenue from platforms based on follower counts, and that financial incentive is described as a structural conflict with enforcement.</span></li><li><strong>Watermarking tools go unused</strong><span>A researcher told Straight Arrow that AI-generated videos largely carry detectable watermarks, but most platforms do not reliably use that existing labeling system.</span></li></ol></section>
+        
+        <section class="box author">
+          <img src="../headshot-square.jpg" alt="Devin Pavlou" width="72" height="72">
+          <div><h2>Devin Pavlou</h2><p>Tech &amp; trust reporter covering AI, surveillance and verification. Open to remote reporting roles.</p>
+          <p class="author-links"><a href="mailto:hello@devinpavlou.com">hello@devinpavlou.com</a> · <a href="../resume.pdf">Resume</a></p></div>
+        </section>
+      </aside>
+    </div>
+  </article>
+
+  <nav class="pager" aria-label="More stories">
+    <a href="chatbot-felony-charge.html"><span>← Previous</span>A chatbot message led to a felony charge. Experts say it may not hold up</a>
+    <a href="character-ai-bankruptcy.html" class="next"><span>Next →</span>Character.AI’s bankruptcy leaves millions of users’ chats in limbo</a>
+  </nav>
+
+  <section class="more-reporting" aria-labelledby="more-h">
+    <h2 id="more-h" class="label">More of my reporting</h2>
+    <div class="more-grid"><a class="more-item" href="character-ai-bankruptcy.html"><span class="kicker">Privacy · Tech accountability</span><span class="more-h">Character.AI’s bankruptcy leaves millions of users’ chats in limbo</span><span class="byline">Oct. 13, 2026</span></a><a class="more-item" href="chatbot-hikers.html"><span class="kicker">AI reliability</span><span class="more-h">Chatbots don’t climb mountains. So why are hikers getting lost after trusting them?</span><span class="byline">Oct. 8, 2026</span></a><a class="more-item" href="hurricane-isaias.html"><span class="kicker">On the ground</span><span class="more-h">Ahead of Hurricane Isaias, worry on the Alabama coast grows by the mile</span><span class="byline">Oct. 9, 2026</span></a></div>
+    <a class="btn" href="../#work">See all my work</a>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Devin Pavlou</span><a href="../">devinpavlou.com</a></div></footer>
+</body>
+</html>
