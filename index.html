@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devin Pavlou · Tech &amp; Trust Reporter</title>
+<meta name="description" content="Devin Pavlou is a reporter covering tech and trust: AI, surveillance, verification, and whether claims about new tech match reality.">
+<meta property="og:title" content="Devin Pavlou · Tech &amp; Trust Reporter">
+<meta property="og:description" content="AI, surveillance, verification, and whether claims about new tech match reality.">
+<meta property="og:image" content="https://devinpavlou.com/headshot-square.jpg">
+<meta property="og:url" content="https://devinpavlou.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23111827'/><text x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23ffffff' text-anchor='middle'>DP</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Comic+Neue:wght@400;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+/* ============ PROFESSIONAL (default) ============ */
+:root{--ink:#111827;--body:#374151;--muted:#4B5563;--rule:#D6D1C4;--red:#B91C1C;--hl:#FDE68A;--bg:#F6F3EC}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--red);text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.serif{font-family:'Playfair Display',Georgia,serif}
+.mono{font-family:'IBM Plex Mono',monospace}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.label{margin:0 0 18px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+body:not(.party) .party-only{display:none !important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ticker */
+.ticker{background:var(--ink);color:#F9FAFB;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;overflow:hidden;white-space:nowrap;display:flex;align-items:center}
+.ticker .live{flex:0 0 auto;background:var(--red);color:#fff;padding:10px 16px;font-weight:500;position:relative;z-index:1}
+.ticker .live .dot{animation:blink 1.2s steps(1) infinite}
+.ticker .viewport{overflow:hidden;flex:1 1 auto}
+.ticker .track{display:inline-flex;gap:48px;padding:10px 0 10px 24px;animation:tick 45s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.15}}
+
+/* masthead */
+.masthead{padding:36px 24px 0;text-align:center;position:relative}
+.masthead .dots{position:absolute;inset:16px 24px auto 24px;height:150px;background-image:radial-gradient(#D1D5DB 1.2px,transparent 1.6px);background-size:9px 9px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent);mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent)}
+.masthead h1{position:relative;margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(44px,7vw,92px);line-height:1;letter-spacing:-.01em}
+.beat{position:relative;display:table;background:var(--bg);padding:2px 12px;margin:14px auto 0;font-size:15px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.motto{position:relative;margin:10px auto 0;display:inline-block;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:22px;padding:0 6px;background:linear-gradient(transparent 62%,var(--hl) 62%)}
+.dek{margin:8px 0 0;font-size:16px;color:var(--muted)}
+.mainnav{margin-top:28px;border-top:3px double var(--ink);border-bottom:1px solid var(--ink);display:flex;flex-wrap:wrap;justify-content:center;gap:4px 32px;padding:12px 0;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+
+/* lead */
+section{scroll-margin-top:16px}
+.lead{display:flex;flex-wrap:wrap;gap:32px;padding:32px 0;border-bottom:1px solid var(--rule)}
+.lead .art{flex:999 1 520px;min-width:0;position:relative;aspect-ratio:16/9;background:var(--ink);color:#F9FAFB;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;overflow:hidden}
+.lead .art::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.6px);background-size:10px 10px}
+.lead .art .big{position:relative;font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3.2vw,40px);line-height:1.15;max-width:26ch}
+.lead .art .big em{font-style:normal;background:linear-gradient(transparent 60%,rgba(185,28,28,.85) 60%)}
+.lead .art .meta{position:relative;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#D1D5DB;text-transform:uppercase}
+.stamp{position:absolute;top:22px;right:22px;transform:rotate(-8deg);border:4px double #F87171;color:#FCA5A5;padding:6px 14px;font-family:'IBM Plex Mono',monospace;font-size:18px;letter-spacing:.14em}
+.lead .text{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.lead h2{margin:0;font-family:'Playfair Display',Georgia,serif;font-size:36px;line-height:1.12}
+.lead p{margin:0;font-size:17px;line-height:1.55;color:var(--body)}
+.byline{font-size:13px;color:var(--muted)}
+.readlink{color:var(--red);font-weight:600}
+
+/* story grids */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;padding:32px 0;border-bottom:1px solid var(--rule)}
+.story{display:flex;flex-direction:column;gap:10px}
+.cardart{display:block;width:100%;height:auto;aspect-ratio:16/9;margin-bottom:6px}
+.story h3{margin:0;font-family:'Playfair Display',Georgia,serif;font-size:23px;line-height:1.2}
+.story p{margin:0;font-size:15px;line-height:1.5;color:var(--body)}
+.more{padding:32px 0;border-bottom:1px solid var(--rule)}
+.more .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 40px}
+.more .item{display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid #E5E7EB}
+.more .item h3{margin:0;font-family:'Playfair Display',Georgia,serif;font-size:20px;line-height:1.25}
+.more .item p{margin:0;font-size:15px;line-height:1.5;color:var(--body)}
+
+/* newsletter + about */
+.split{display:flex;flex-wrap:wrap;gap:40px;padding:32px 0;border-bottom:1px solid var(--rule)}
+.split .main{flex:999 1 520px;min-width:0}
+.split aside{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.note{margin:0 0 18px;font-size:13px;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+.posts a{display:flex;gap:20px;padding:16px 0;border-top:1px solid #E5E7EB}
+.posts a:last-child{border-bottom:1px solid #E5E7EB}
+.posts .d{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);flex:0 0 90px}
+.posts .t{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700}
+.empty{padding:22px;border:1px dashed #9CA3AF;font-size:15px;line-height:1.55;color:var(--body)}
+.subscribe-btn{display:inline-block;margin-top:22px;background:var(--ink);color:#fff}
+.subscribe-btn:hover{background:var(--red);border-color:var(--red)}
+.headshot{width:180px;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block}
+aside p{margin:0;font-size:15px;line-height:1.6;color:var(--body)}
+.btn{align-self:flex-start;padding:12px 18px;border:2px solid var(--ink);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+.btn:hover{background:var(--ink);color:#fff;text-decoration:none}
+.about-full{padding:32px 0;border-bottom:1px solid var(--rule)}
+.about-grid{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}.about-grid .photo{margin:0;flex:0 0 auto}.about-full .headshot{width:240px}.about-full .btn{display:inline-block;margin-top:4px}
+.about-full .body{flex:1 1 380px;max-width:68ch;font-size:17px;line-height:1.65;color:var(--body)}
+.about-full .body p{margin:0 0 16px}
+
+/* strip + contact */
+.strip{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;padding:24px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.strip strong{text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--red)}
+.contact{padding:32px 0 40px}
+.contact .links{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:16px}
+.contact .links a{border-bottom:2px solid var(--rule)}
+.contact .links a:hover{border-color:var(--red);text-decoration:none}
+
+/* footer */
+footer{background:var(--ink);color:#E5E7EB}
+footer .wrap{padding-top:22px;padding-bottom:22px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;font-size:13px}
+.counter{display:flex;align-items:center;gap:10px}
+.counter b{display:inline-flex;gap:2px;font-family:'IBM Plex Mono',monospace;font-weight:500}
+.counter b i{font-style:normal;background:#000;color:#4ADE80;padding:2px 5px;border:1px solid #4B5563}
+.badge{border:2px outset #9CA3AF;background:#C0C0C0;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 8px;cursor:pointer}
+.badge:active{border-style:inset}
+
+@media (max-width:640px){
+  .lead h2{font-size:28px}
+  .mainnav{gap:4px 18px;font-size:13px}
+  .posts .d{flex-basis:70px}
+  .lead .art{aspect-ratio:auto;padding:76px 20px 20px}
+  .stamp{font-size:13px;top:18px;right:16px}
+  .lead .art .big{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
+}
+
+/* ============ PARTY MODE (GeoCities) ============ */
+body.party{background:#3EC6C6 url(party-tile.svg) 0 0/220px 220px;font-family:'Times New Roman',Times,serif;color:#000}
+body.party .party-only{display:block}
+body.party span.party-only,body.party a.party-only{display:inline}
+body.party .buttons88{display:flex}
+body.party .pro-only{display:none !important}
+body.party a{color:#0000EE;text-decoration:underline}
+body.party a:hover{color:#FF0000}
+body.party .wrap{max-width:900px}
+body.party .serif,body.party h2,body.party h3,body.party .lead h2,body.party .story h3,body.party .more .item h3,body.party .posts .t{font-family:'Comic Neue','Comic Sans MS',cursive}
+body.party .ticker{background:#000;border:3px ridge #C0C0C0;max-width:900px;margin:24px auto 0}
+body.party .ticker .live{background:#FF0000;font-family:'Press Start 2P',monospace;font-size:10px}
+body.party .ticker .track{font-family:VT323,monospace;font-size:24px;color:#00FF00;animation-duration:25s}
+body.party .masthead{max-width:900px;margin:18px auto 0;background:#FFFFCC;border:4px outset #C0C0C0;padding:24px}
+body.party .masthead .dots{display:none}
+body.party .masthead h1{font-family:'Press Start 2P',monospace;font-size:clamp(20px,3.4vw,34px);line-height:1.4;text-shadow:3px 3px 0 #000;animation:rainbow 4s linear infinite alternate}
+body.party .masthead h1::before,body.party .masthead h1::after{content:"✸";display:inline-block;color:#FF9900;margin:0 16px;animation:spin 3s linear infinite;text-shadow:none}
+body.party .beat{background:transparent;font-family:'Comic Neue','Comic Sans MS',cursive;font-size:22px;letter-spacing:0;text-transform:none;color:#990000}
+body.party .beat::before{content:"~*~ "}body.party .beat::after{content:" ~*~"}
+body.party .motto{background:none;font-family:'Comic Neue','Comic Sans MS',cursive;font-style:normal;color:#000099}
+body.party .dek{color:#000}
+body.party .mainnav{border:0;margin-top:14px;padding-top:18px;background:linear-gradient(90deg,#FF0000,#FF9900,#FFFF00,#00FF00,#00CCFF,#0000FF,#FF00FF) top/100% 6px no-repeat;text-transform:none;letter-spacing:0;font-size:17px;gap:8px 14px}
+body.party .mainnav a::before{content:"[ "}body.party .mainnav a::after{content:" ]"}
+body.party main.wrap{display:flex;flex-direction:column;gap:18px;padding-top:18px}
+body.party main section,body.party .split{background:#fff;border:4px outset #C0C0C0;padding:20px}
+body.party .lead .art{background:#000080;aspect-ratio:auto;min-height:220px}
+body.party .lead .art .big{font-family:'Comic Neue','Comic Sans MS',cursive;color:#FFFF66}
+body.party .lead .art .big em{background:none;color:#00FF00}
+body.party .stamp{border-color:#FF0000;color:#FF0000;background:#FFFF00;font-family:'Press Start 2P',monospace;font-size:11px}
+body.party .kicker{color:#FF00FF;font-family:VT323,monospace;font-size:20px;letter-spacing:.04em}
+body.party .lead h2::after{content:"NEW!";font-family:'Press Start 2P',monospace;font-size:11px;background:#FF0000;color:#FFFF00;padding:3px 6px;margin-left:10px;vertical-align:middle;animation:blinky 1s steps(1) infinite}
+body.party .split aside{background:#CCFFFF;padding:16px;border:3px inset #C0C0C0}
+body.party .headshot{border:3px inset #C0C0C0}
+body.party .btn{border:3px outset #fff;background:#C0C0C0;color:#000;text-decoration:none}
+body.party .label{font-family:'Comic Neue','Comic Sans MS',cursive;font-size:26px;text-transform:none;letter-spacing:0;color:#000099}
+body.party .empty{border:3px inset #C0C0C0;background:#EEEEFF}
+body.party .strip strong,body.party .byline,body.party .note{color:#000}
+body.party .contact{background:#FFFFCC !important;text-align:center}
+body.party .contact .links{justify-content:center}
+body.party footer{background:#000080;color:#fff;border-top:4px ridge #C0C0C0;margin-top:24px}
+body.party footer .wrap{flex-direction:column;justify-content:center;text-align:center}
+body.party .counter b i{font-family:VT323,monospace;font-size:22px;color:#00FF00}
+.construction{background:repeating-linear-gradient(-45deg,#FFCC00 0 18px,#000 18px 36px);border:3px ridge #C0C0C0;padding:10px;text-align:center}
+.construction span{display:inline-block;background:#FFCC00;padding:6px 14px;font-family:'Press Start 2P',monospace;font-size:12px;line-height:1.6}
+.buttons88{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.buttons88 span{width:88px;height:31px;border:2px outset #C0C0C0;font-family:VT323,monospace;font-size:15px;display:flex;align-items:center;justify-content:center;line-height:1;text-align:center}
+.exit-party{position:fixed;right:16px;bottom:16px;z-index:10;background:#C0C0C0;border:3px outset #fff;font-family:'Press Start 2P',monospace;font-size:10px;padding:10px 12px;cursor:pointer;display:none}
+body.party .exit-party{display:block}
+@keyframes rainbow{0%{color:#FF0000}20%{color:#FF9900}40%{color:#FFFF00}60%{color:#00FF00}80%{color:#00CCFF}100%{color:#FF00FF}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes blinky{0%,49%{opacity:1}50%,100%{opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="ticker" role="marquee" aria-label="Status updates">
+  <span class="live"><span class="pro-only">UPDATES</span><span class="party-only"><span class="dot" aria-hidden="true">●</span> LIVE</span></span>
+  <div class="viewport">
+    <div class="track">
+      <span>NOW: Open to remote reporting roles</span><span aria-hidden="true">★</span><span>Tips: hello@devinpavlou.com</span><span aria-hidden="true">★</span><span>Newsletter launching soon</span><span aria-hidden="true">★</span><span>MOBILE, ALA. · VOL. 1, NO. 1</span><span aria-hidden="true">★</span>
+      <span aria-hidden="true">NOW: Open to remote reporting roles</span><span aria-hidden="true">★</span><span aria-hidden="true">Tips: hello@devinpavlou.com</span><span aria-hidden="true">★</span><span aria-hidden="true">Newsletter launching soon</span><span aria-hidden="true">★</span><span aria-hidden="true">MOBILE, ALA. · VOL. 1, NO. 1</span><span aria-hidden="true">★</span>
+    </div>
+  </div>
+</div>
+
+<header class="masthead wrap">
+  <div class="dots" aria-hidden="true"></div>
+  <h1>Devin Pavlou</h1>
+  <p class="beat">Tech &amp; Trust Reporter</p>
+  <p class="motto">Should you believe it?</p>
+  <p class="dek">AI, surveillance, verification, and whether claims about new tech match reality.</p>
+  <nav class="mainnav" aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="#latest">Newsletter</a>
+    <a href="#about">About</a>
+    <a href="resume.pdf">Resume</a>
+    <a href="#contact">Contact</a>
+    <a class="party-only" href="#guestbook">Sign My Guestbook</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- TOP STORY -->
+  <section id="work" class="lead" aria-label="Top story">
+    <div class="art" aria-hidden="true">
+      <span class="stamp">CHECKED ✓</span>
+      <div class="big">A basic search would have flagged the school. <em>The people who would’ve caught it were gone.</em></div>
+      <div class="meta">Feature · Government oversight · Oct. 16, 2026</div>
+    </div>
+    <div class="text">
+      <span class="kicker">Feature · Government oversight</span>
+      <h2><a href="https://web.archive.org/web/20261112233951/https://san.com/cc/staff-cuts-oversight-failure-to-blame-in-iran-school-strike-not-faulty-ai-targeting-ex-pentagon-official/" target="_blank" rel="noopener" data-clip="minab">Staff cuts, oversight failure to blame in Iran school strike, not faulty AI targeting: Ex-Pentagon official</a></h2>
+      <p>The Pentagon’s former chief of civilian harm assessments says a basic search would have flagged the Minab school. The people who would’ve caught it were gone.</p>
+      <span class="byline">Straight Arrow News · Oct. 16, 2026 · <a class="readlink" href="https://web.archive.org/web/20261112233951/https://san.com/cc/staff-cuts-oversight-failure-to-blame-in-iran-school-strike-not-faulty-ai-targeting-ex-pentagon-official/" target="_blank" rel="noopener" data-clip="minab">Read the story →</a></span>
+    </div>
+  </section>
+
+  <!-- SECOND TIER -->
+  <section class="grid3" aria-label="Featured stories">
+    <article class="story">
+      <svg class="cardart" viewBox="0 0 320 180" role="img" aria-label="Illustration of a robot dog in front of a contract stamped no bid"><rect width="320" height="180" fill="#1E3A5F"/><g fill="none" stroke="rgba(255,255,255,.08)"><path d="M0 30H320M0 60H320M0 90H320M0 120H320M0 150H320"/></g><g transform="rotate(-6 70 80)"><rect x="24" y="26" width="92" height="116" fill="#F6F3EC"/><path d="M36 46H104M36 58H96M36 70H104M36 82H88M36 94H100" stroke="#9CA3AF" stroke-width="3"/><rect x="36" y="108" width="66" height="22" fill="none" stroke="#B91C1C" stroke-width="3"/><text x="69" y="124" font-family="IBM Plex Mono,monospace" font-size="12" font-weight="700" fill="#B91C1C" text-anchor="middle">NO BID</text></g><path d="M0 152H320" stroke="#E0A526" stroke-width="3"/><g stroke="#111827" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M160 102l-10 22 6 28M180 104l2 48M232 102l12 22-8 28M252 100l4 52"/></g><rect x="148" y="72" width="116" height="36" rx="10" fill="#E5E7EB" stroke="#111827" stroke-width="4"/><rect x="250" y="52" width="46" height="28" rx="7" fill="#E5E7EB" stroke="#111827" stroke-width="4"/><circle cx="284" cy="66" r="5" fill="#B91C1C"/><path d="M296 66q14 0 18-14" stroke="#B91C1C" stroke-width="3" fill="none" stroke-dasharray="4 5"/><rect x="186" y="62" width="34" height="12" rx="3" fill="#111827"/></svg>
+      <span class="kicker">Accountability</span>
+      <h3><a href="https://web.archive.org/web/20261112235109/https://san.com/cc/what-ice-plans-to-do-with-its-new-1-3m-robot-dogs/" target="_blank" rel="noopener" data-clip="robodogs">What ICE plans to do with its new $1.3M robot dogs</a></h3>
+      <p>What the agency’s own justification document showed: ICE skipped competitive bidding.</p>
+      <span class="byline">Sept. 29, 2026</span>
+    </article>
+    <article class="story">
+      <svg class="cardart" viewBox="0 0 320 180" role="img" aria-label="Illustration of smart glasses with a camera light"><rect width="320" height="180" fill="#2F7F7A"/><circle cx="60" cy="40" r="70" fill="rgba(255,255,255,.07)"/><circle cx="280" cy="160" r="90" fill="rgba(0,0,0,.08)"/><g fill="#F6F3EC" stroke="#111827" stroke-width="6"><circle cx="118" cy="96" r="40"/><circle cx="206" cy="96" r="40"/></g><path d="M158 92q4-10 8 0" stroke="#111827" stroke-width="6" fill="none"/><path d="M78 88L40 76M246 88L284 76" stroke="#111827" stroke-width="6" stroke-linecap="round"/><ellipse cx="118" cy="98" rx="18" ry="11" fill="#fff" stroke="#111827" stroke-width="3"/><circle cx="118" cy="98" r="7" fill="#1E3A5F"/><circle cx="240" cy="66" r="7" fill="#B91C1C"/><circle cx="240" cy="66" r="14" fill="none" stroke="#FCA5A5" stroke-width="2"/><path d="M196 92H218M196 104H212" stroke="#9CA3AF" stroke-width="4" stroke-linecap="round"/></svg>
+      <span class="kicker">Privacy · Accessibility</span>
+      <h3><a href="https://web.archive.org/web/20261113000351/https://san.com/cc/smart-glasses-gave-a-man-sight-the-privacy-panic-took-it-away/" target="_blank" rel="noopener" data-clip="glasses">Smart glasses helped a man see the world. The privacy panic took it away</a></h3>
+      <p>A legally blind New Yorker relied on Meta’s glasses to get around. When the “pervert glasses” backlash hit, he stopped wearing them.</p>
+      <span class="byline">Sept. 4, 2026</span>
+    </article>
+    <article class="story">
+      <svg class="cardart" viewBox="0 0 320 180" role="img" aria-label="Illustration of a globe in a simulation with a day 4 counter"><rect width="320" height="180" fill="#111827"/><g fill="#fff" opacity=".5"><circle cx="30" cy="30" r="1.5"/><circle cx="290" cy="22" r="1.5"/><circle cx="270" cy="150" r="1.5"/><circle cx="50" cy="150" r="1.5"/><circle cx="96" cy="20" r="1"/></g><circle cx="160" cy="92" r="58" fill="#1E3A5F" stroke="#E0A526" stroke-width="3"/><g fill="none" stroke="#E0A526" stroke-width="2" opacity=".7"><ellipse cx="160" cy="92" rx="24" ry="58"/><ellipse cx="160" cy="92" rx="46" ry="58"/><path d="M102 92H218M110 64H210M110 120H210"/></g><path d="M140 74q10-8 22 0l6 10-10 8-14-2z" fill="#B91C1C"/><path d="M176 104l14-6 8 10-12 8z" fill="#B91C1C"/><rect x="226" y="30" width="70" height="40" rx="4" fill="#B91C1C"/><text x="261" y="48" font-family="IBM Plex Mono,monospace" font-size="10" fill="#FECACA" text-anchor="middle">SIM CLOCK</text><text x="261" y="63" font-family="IBM Plex Mono,monospace" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">DAY 4</text><rect x="22" y="104" width="64" height="26" rx="12" fill="#374151"/><path d="M36 117H72" stroke="#9CA3AF" stroke-width="3" stroke-dasharray="6 5"/></svg>
+      <span class="kicker">AI</span>
+      <h3><a href="https://web.archive.org/web/20261113012927/https://san.com/cc/researchers-put-chatbots-in-a-simulation-grok-ended-the-world-in-4-days/" target="_blank" rel="noopener" data-clip="grok">Researchers put chatbots in a simulation. Grok ended the world in 4 days</a></h3>
+      <p>Straight Arrow’s top subscription-driving story.</p>
+      <span class="byline">June 5, 2026</span>
+    </article>
+  </section>
+
+  <!-- MORE WORK -->
+  <section class="more" aria-labelledby="more-h">
+    <h2 id="more-h" class="label">More of my reporting</h2>
+    <div class="cols">
+      <div class="item">
+        <span class="kicker">Fact-check</span>
+        <h3><a href="https://web.archive.org/web/20261113001006/https://san.com/cc/viral-post-claims-trump-is-buying-contaminated-beef-heres-what-we-found/" target="_blank" rel="noopener" data-clip="beef">Viral post claims Trump is buying contaminated beef. Here’s what we found</a></h3>
+        <p>A top-five story, picked up by The Young Turks.</p>
+        <span class="byline">Aug. 25, 2026</span>
+      </div>
+      <div class="item">
+        <span class="kicker">Privacy · AI</span>
+        <h3><a href="https://web.archive.org/web/20261112234428/https://san.com/cc/a-chatbot-message-led-to-a-felony-charge-experts-say-it-may-not-hold-up/" target="_blank" rel="noopener" data-clip="police">A chatbot message led to a felony charge. Experts say it may not hold up</a></h3>
+        <p>A Florida woman thought her AI chats were a private diary. Court records show how her messages reached police.</p>
+        <span class="byline">Oct. 8, 2026</span>
+      </div>
+      <div class="item">
+        <span class="kicker">Verification</span>
+        <h3><a href="https://web.archive.org/web/20261113020003/https://san.com/cc/a-crying-soldier-and-an-army-girl-show-how-ai-manipulates-our-emotions/" target="_blank" rel="noopener" data-clip="soldier">A crying “soldier” and an “Army girl” show how AI manipulates our emotions</a></h3>
+        <p>After PolitiFact got a dozen fake-soldier accounts taken down, I found just as many still posting.</p>
+        <span class="byline">April 26, 2026</span>
+      </div>
+      <div class="item">
+        <span class="kicker">Privacy · Tech accountability</span>
+        <h3><a href="https://web.archive.org/web/20261112234135/https://san.com/cc/character-ais-bankruptcy-leaves-millions-of-users-chats-in-limbo/" target="_blank" rel="noopener" data-clip="character">Character.AI’s bankruptcy leaves millions of users’ chats in limbo</a></h3>
+        <p>The company told users their data is protected. Its own privacy policy allows sharing it in exactly the kind of sale now underway.</p>
+        <span class="byline">Oct. 13, 2026</span>
+      </div>
+      <div class="item">
+        <span class="kicker">AI reliability</span>
+        <h3><a href="https://web.archive.org/web/20261112234353/https://san.com/cc/chatbots-dont-climb-mountains-so-why-are-hikers-getting-lost-after-trusting-them/" target="_blank" rel="noopener" data-clip="hikers">Chatbots don’t climb mountains. So why are hikers getting lost after trusting them?</a></h3>
+        <p>Rescuers from British Columbia to California described a pattern of hikers stranded after following chatbot advice.</p>
+        <span class="byline">Oct. 8, 2026</span>
+      </div>
+      <div class="item">
+        <span class="kicker">On the ground</span>
+        <h3><a href="https://web.archive.org/web/20261112234318/https://san.com/cc/ahead-of-hurricane-isaias-worry-on-the-alabama-coast-grows-by-the-mile/" target="_blank" rel="noopener" data-clip="isaias">Ahead of Hurricane Isaias, worry on the Alabama coast grows by the mile</a></h3>
+        <p>A 70-mile drive down the Alabama coast hours before landfall.</p>
+        <span class="byline">Oct. 9, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="construction party-only" aria-hidden="true"><span>🚧 NEWSLETTER UNDER CONSTRUCTION 🚧</span></div>
+
+  <!-- NEWSLETTER + SIDEBAR -->
+  <section class="split" aria-label="Newsletter">
+    <div class="main" id="latest">
+      <h2 class="label">Latest from the newsletter</h2>
+      <p class="note">Updates automatically when I publish on Substack</p>
+      <div class="posts" id="posts">
+        <div class="empty">My newsletter launches soon. Subscribe to get the first post in your inbox.</div>
+      </div>
+      <a class="btn subscribe-btn" href="https://devinpavlou.substack.com/subscribe">Subscribe on Substack →</a>
+    </div>
+  </section>
+
+  <!-- FULL ABOUT -->
+  <section id="about" class="about-full" aria-labelledby="about-h">
+    <h2 id="about-h" class="label">About me</h2>
+    <div class="about-grid">
+    <figure class="photo"><img class="headshot" src="headshot.jpg" alt="Devin Pavlou" width="240" height="300"></figure>
+    <div class="body">
+      <p>I’m a reporter who covers tech and trust, which mostly means figuring out whether things are what they claim to be: AI tools, surveillance tech, government contracts, viral posts.</p>
+      <p>Most recently I did that at Straight Arrow News. I dug into the paperwork behind ICE’s $1.3 million robot dog purchase and showed how the agency skipped competitive bidding. I checked a viral claim about beef imports, and that story got picked up by The Young Turks. And a story on an AI research study brought in more subscribers than anything else we published.</p>
+      <p>Before I was a reporter there, I was on the daily and breaking news team. I put together the plan we used for breaking news, and it got our turnaround down from a couple of hours to about 23 minutes.</p>
+      <p>Before Straight Arrow, I spent four years in TV news at WAFF 48 in Huntsville and FOX10 in Mobile. I’m based near Mobile, Ala.</p>
+      <p><strong>What I’m working on:</strong> Looking for my next reporting job (remote, covering tech, AI or something close to it) and launching a newsletter. Happy to talk anytime.</p>
+      <a class="btn" href="resume.pdf">Download resume (PDF)</a>
+    </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Recognition">
+    <span><strong>Picked up by</strong>&nbsp; The Young Turks</span>
+    <span><strong>Award</strong>&nbsp; 2022 News Website of the Year, Alabama Broadcasters Association (WAFF.com team)</span>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h" class="label">Contact &amp; tips</h2>
+    <div class="links">
+      <a href="mailto:hello@devinpavlou.com">hello@devinpavlou.com</a>
+      <a href="https://www.linkedin.com/in/devin-pavlou/">LinkedIn</a>
+      <a href="https://muckrack.com/devin-pavlou-1">Muck Rack</a>
+      <a href="https://devinpavlou.substack.com">Substack</a>
+    </div>
+  </section>
+
+  <section id="guestbook" class="party-only" aria-label="Guestbook">
+    <h2 class="label">📖 Sign My Guestbook!</h2>
+    <p style="margin:0;font-size:17px">The guestbook is just my email. <a href="mailto:hello@devinpavlou.com?subject=Signing%20your%20guestbook">Click here to sign it!</a> I read every one.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Devin Pavlou</span>
+    <span class="counter">You are visitor <b aria-label="000417"><i>0</i><i>0</i><i>0</i><i>4</i><i>1</i><i>7</i></b></span>
+    <div class="buttons88 party-only" aria-hidden="true">
+      <span style="background:#000080;color:#FFFF00">MADE IN ALA.</span>
+      <span style="background:#fff;color:#000">BEST VIEWED<br>800×600</span>
+      <span style="background:#006600;color:#fff">FACT-CHECKED</span>
+    </div>
+    <p class="party-only" style="margin:0"><a href="#" style="color:#FFFF66">◄ Prev</a> · Reporters Webring · <a href="#" style="color:#FFFF66">Next ►</a></p>
+    <button class="badge" id="party-toggle" type="button" title="Don’t click this" aria-pressed="false">MADE BY HAND IN ALABAMA</button>
+  </div>
+</footer>
+
+<button class="exit-party" id="exit-party" type="button">EXIT PARTY MODE</button>
+
+<script>
+(function(){
+  var KEY='dp-party';
+  function set(on,top){
+    if(top) window.scrollTo(0,0);
+    document.body.classList.toggle('party',on);
+    document.getElementById('party-toggle').setAttribute('aria-pressed',on?'true':'false');
+    try{ on?localStorage.setItem(KEY,'1'):localStorage.removeItem(KEY);}catch(e){}
+  }
+  try{ if(localStorage.getItem(KEY)==='1') set(true);}catch(e){}
+  if(location.hash==='#party') set(true);
+  document.getElementById('party-toggle').addEventListener('click',function(){set(!document.body.classList.contains('party'),true);});
+  document.getElementById('exit-party').addEventListener('click',function(){set(false,true);});
+  // Konami code also opens party mode
+  var seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],i=0;
+  document.addEventListener('keydown',function(e){ i=(e.key===seq[i])?i+1:(e.key===seq[0]?1:0); if(i===seq.length){i=0;set(true,true);} });
+
+  // Newsletter posts: posts.json is refreshed daily from the Substack feed
+  fetch('posts.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():[];}).then(function(posts){
+    if(!Array.isArray(posts)||!posts.length) return;
+    var box=document.getElementById('posts'); box.innerHTML='';
+    posts.slice(0,3).forEach(function(p){
+      var a=document.createElement('a'); a.href=p.url;
+      var d=document.createElement('span'); d.className='d'; d.textContent=p.date;
+      var t=document.createElement('span'); t.className='t'; t.textContent=p.title;
+      a.appendChild(d); a.appendChild(t); box.appendChild(a);
+    });
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
