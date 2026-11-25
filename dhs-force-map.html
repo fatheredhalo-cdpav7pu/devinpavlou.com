@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Austin to Minneapolis: Mapping the rise in DHS force incidents that led to deaths, injuries · Devin Pavlou</title>
+<meta name="description" content="A dataset and interactive map of shootings by federal immigration agents since 2025, and why accountability has stalled.">
+<meta property="og:title" content="From Austin to Minneapolis: Mapping the rise in DHS force incidents that led to deaths, injuries">
+<meta property="og:description" content="A dataset and interactive map of shootings by federal immigration agents since 2025, and why accountability has stalled.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://devinpavlou.com/headshot-square.jpg">
+<meta property="og:url" content="https://devinpavlou.com/stories/dhs-force-map.html">
+<link rel="canonical" href="https://devinpavlou.com/stories/dhs-force-map.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23111827'/><text x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23ffffff' text-anchor='middle'>DP</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111827;--body:#374151;--muted:#4B5563;--rule:#D6D1C4;--red:#B91C1C;--hl:#FDE68A;--bg:#F6F3EC}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}
+a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.label{margin:0 0 18px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.byline{font-size:13px;color:var(--muted)}
+
+/* top bar */
+.topbar{background:var(--ink);color:#F9FAFB;border-bottom:3px double #F9FAFB}
+.topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-top:14px;padding-bottom:14px}
+.brand{color:#fff;text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:24px}
+.topbar nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.topbar nav a{color:#E5E7EB;text-decoration:none}
+.topbar a:hover{color:#FCA5A5}
+
+/* headline block */
+.art-head{max-width:880px;padding:40px 0 24px;display:flex;flex-direction:column;gap:14px}
+.art-head h1{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.005em}
+.byline-row{display:flex;align-items:center;gap:12px;padding-top:6px}
+.byline-row img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.byline-row .by{display:block;font-weight:700;font-size:15px}
+.byline-row .by a{text-decoration:none;border-bottom:2px solid var(--rule)}
+.byline-row .by a:hover{border-color:var(--red)}
+.byline-row .pub{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+
+/* hero */
+.hero{margin:0 0 8px}
+.titlecard{position:relative;aspect-ratio:3/1;min-height:240px;background:var(--card,#111827);color:#F9FAFB;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;overflow:hidden}
+.titlecard::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.6px);background-size:10px 10px}
+.tc-kicker{position:relative;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#D1D5DB;margin-bottom:12px}
+.tc-big{position:relative;font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,38px);line-height:1.18;max-width:30ch}
+.tc-big em{font-style:normal;background:linear-gradient(transparent 60%,rgba(185,28,28,.85) 60%)}
+figcaption{font-size:13px;line-height:1.5;color:var(--muted);padding-top:8px}
+.credit{white-space:nowrap;font-size:12px;color:#6B7280}
+
+/* body + sidebar */
+.art-grid{display:grid;grid-template-columns:minmax(0,680px) minmax(0,340px);justify-content:space-between;gap:56px;padding:32px 0 48px;border-bottom:1px solid var(--rule)}
+.art-body{font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.7;color:#1F2937}
+.art-body p{margin:0 0 1.15em}
+.art-body a{color:inherit;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:3px}
+.art-body a:hover{color:var(--red)}
+.art-body h2{font-family:'Playfair Display',Georgia,serif;font-size:27px;line-height:1.2;margin:1.6em 0 .6em;color:var(--ink)}
+.art-body > p:first-child::first-letter{float:left;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:4.1em;line-height:.82;padding:.06em .1em 0 0;color:var(--ink)}
+.datafig{margin:1.6em 0;padding:18px 0 0;border-top:4px solid var(--ink)}
+.datafig .fig-title{margin:0 0 10px;font-family:Inter,sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.datafig .flourish-embed{background:#fff;border:1px solid var(--rule);min-height:420px}
+.datafig figcaption a{color:var(--muted)}
+.endmark{font-size:12px;color:var(--red);margin-top:-.4em}
+.provenance{margin-top:28px;padding:18px 20px;background:#EFEBE1;font-family:Inter,sans-serif;font-size:14px;line-height:1.6;color:var(--body)}
+.provenance p{margin:0 0 8px}
+.provenance a{font-weight:600;color:var(--red);text-decoration:none}
+.provenance a:hover{text-decoration:underline}
+
+.art-side{display:flex;flex-direction:column;gap:22px}
+.box{background:#fff;border:1px solid var(--rule);padding:20px 22px}
+.box h2{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.box p{margin:0;font-size:15px;line-height:1.6;color:var(--body)}
+.wtsm{border-top:4px solid var(--ink)}
+.wtsm > p{font-family:'Source Serif 4',Georgia,serif;font-size:17px;color:#1F2937}
+.wtsm ol{list-style:none;counter-reset:w;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.wtsm li{counter-increment:w;position:relative;padding:14px 0 0 40px;border-top:1px solid #E5E7EB;font-size:14px;line-height:1.55;color:var(--body)}
+.wtsm li::before{content:counter(w);position:absolute;left:0;top:14px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.wtsm li strong{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.note p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:18px;line-height:1.45;color:var(--ink)}
+.sources ol{margin:0;padding-left:20px;font-size:14px;line-height:1.7;color:var(--body)}
+.sources a{color:var(--ink)}
+.author{display:flex;gap:14px;align-items:flex-start}
+.author img{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.author h2{color:var(--ink);letter-spacing:.06em;margin-bottom:6px}
+.author-links{margin-top:8px !important;font-size:14px !important}
+.author-links a{color:var(--red);text-decoration:none;font-weight:600}
+
+/* pager + more */
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--rule)}
+.pager a{display:flex;flex-direction:column;gap:6px;text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.3}
+.pager a span{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.pager a.next{text-align:right}
+.pager a:hover{color:var(--red)}
+.more-reporting{padding:32px 0 48px}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px 32px;margin-bottom:24px}
+.more-item{display:flex;flex-direction:column;gap:6px;padding:16px 0;border-top:1px solid #E5E7EB;text-decoration:none}
+.more-h{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:20px;line-height:1.25}
+.more-item:hover .more-h{color:var(--red)}
+.btn{display:inline-block;padding:12px 18px;border:2px solid var(--ink);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.btn:hover{background:var(--ink);color:#fff}
+footer{background:var(--ink);color:#E5E7EB}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;font-size:13px}
+footer a{color:#E5E7EB}
+
+@media (max-width:960px){
+  .art-grid{grid-template-columns:1fr;gap:28px}
+  .art-side{order:-1}
+  .art-side .author,.art-side .sources{display:none}
+}
+@media (max-width:640px){
+  .wrap{padding:0 18px}
+  .art-head{padding-top:28px}
+  .art-body{font-size:18px}
+  .titlecard{aspect-ratio:auto;padding:56px 20px 22px}
+  .pager{grid-template-columns:1fr}
+  .pager a.next{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+.art-body figcaption{font-family:Inter,system-ui,sans-serif}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../">Devin Pavlou</a>
+    <nav aria-label="Main"><a href="../#work">Work</a><a href="../#latest">Newsletter</a><a href="../#about">About</a><a href="../#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article>
+    <header class="art-head">
+      <span class="kicker">Data · Accountability</span>
+      <h1>From Austin to Minneapolis: Mapping the rise in DHS force incidents that led to deaths, injuries</h1>
+      <div class="byline-row">
+        <img src="../headshot-square.jpg" alt="" width="44" height="44">
+        <div><span class="by">By <a href="../#about">Devin Pavlou</a> and Cassandra Buchman</span>
+        <span class="pub">Originally published in Straight Arrow News · Sept. 21, 2026 · Updated Oct. 9, 2026</span></div>
+      </div>
+    </header>
+    <figure class="hero">
+      <div class="titlecard" role="img" aria-label="Title card: at least seven killed and a dozen injured by federal immigration agents since 2025">
+        <div class="tc-kicker">Data analysis · Jan. 2025 to Oct. 2026</div>
+        <div class="tc-big">Federal immigration agents have killed <em>at least seven people</em> and injured at least a dozen in shootings since 2025.</div>
+      </div>
+    </figure>
+    <div class="art-grid">
+      <div class="art-body">
+<p>An Immigration and Customs Enforcement (ICE) agent shot Oscar Belgal on Thursday, Oct. 8 in New York City, sending him to the hospital. At the time of the shooting, there was a 5-year-old child in the back seat of Belgal’s car.</p>
+<p>ICE agents <a href="https://web.archive.org/web/2026/https://san.com/cc/one-injured-after-being-shot-by-ice-officers-on-sunday/" target="_blank" rel="noopener">shot and wounded</a> 28-year-old Wilber Rafael Garcés Perez in Austin, Texas, on Sunday, Sept. 20, after they said he ran from a traffic stop while making a DoorDash delivery. Federal authorities are investigating the shooting. The Austin Police Department said it hasn’t been allowed to see the case.</p>
+<p>The incident sparked a protest that local authorities dispersed with pepper balls and tear gas after declaring it an unlawful assembly.</p>
+<p>These are the latest in a growing pattern of shootings by federal immigration agents since President Donald Trump’s second-term crackdown began — one that’s now stretched from coast to coast.</p>
+<h2>Shootings coast to coast</h2>
+<p>Since the beginning of 2025, federal immigration agents have killed at least seven people during immigration-related arrests or protests surrounding their enforcement, according to a Straight Arrow analysis of data from <a href="https://datahub.thetrace.org/dataset/federal-immigration-agent-shootings/#live-data" target="_blank" rel="noopener">the Gun Violence Data Hub</a>. At least a dozen have been injured in shootings.</p>
+<p>The first shooting <a href="https://web.archive.org/web/2026/https://san.com/cc/ice-fatally-shot-a-texas-man-in-march-2025-the-lone-witness-just-died/" target="_blank" rel="noopener">occurred</a> on March 15, 2025, when agents killed Ruben Ray Martinez during a traffic incident in South Padre Island, Texas. ICE’s role in the shooting wasn’t confirmed until nearly a year later, when media outlets looked through Department of Homeland Security files.</p>
+<p>Scrutiny of federal agents reached a new high this year after they killed two U.S. citizens, Renee Good and Alex Pretti, less than a month from each other in Minneapolis. The killings sparked major protests and <a href="https://web.archive.org/web/2026/https://san.com/cc/democrats-arent-budging-on-dhs-demands-amid-shutdown/" target="_blank" rel="noopener">prompted questions</a> from Congress over what federal immigration agents were doing in their immigration crackdown operation. But months later, those questions remain largely unanswered.</p>
+<figure class="datafig">
+  <p class="fig-title">Federal immigration agent shootings</p>
+  <div class="flourish-embed flourish-map" data-src="visualisation/30322406"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><a href="https://public.flourish.studio/visualisation/30322406/">View the interactive map</a></noscript></div>
+  <figcaption>Hover over a state to see incidents. Map and dataset by Devin Pavlou. Source: <a href="https://datahub.thetrace.org/dataset/federal-immigration-agent-shootings/#live-data" target="_blank" rel="noopener">Gun Violence Data Hub</a>, news articles.</figcaption>
+</figure>
+<h2>Accountability in DHS</h2>
+<p>In January, ICE agent Christian Castro shot Julio Cesar Sosa-Celis during an incident in Minneapolis and then claimed Sosa-Celis attacked him with a broom and shovel. The story held up long enough for prosecutors <a href="https://www.dhs.gov/news/2026/01/15/dhs-releases-more-details-about-three-violent-criminal-illegal-aliens-who-violently" target="_blank" rel="noopener">to charge</a> Sosa-Celis and another man, but surveillance footage later proved it false. Minnesota state prosecutors <a href="https://web.archive.org/web/2026/https://san.com/cc/feds-charge-ice-officer-with-lying-about-january-minneapolis-shooting/" target="_blank" rel="noopener">charged</a> Castro with assault and falsely reporting a crime.</p>
+<p>That wasn’t the only time video evidence disputed a federal immigration agent’s official report on a shooting.</p>
+<p>In a Chicago suburb, an ICE agent shot and killed Silverio Villegas González during a September 2025 traffic stop. DHS claimed González had dragged and seriously injured the agent with his car, but video analysis of the incident later contradicted those claims. In body cam video, the agent can be heard saying his injuries were “nothing major,” <a href="https://chicago.suntimes.com/the-watchdogs/2025/09/22/ice-officer-injuries-nothing-major-deadly-franklin-park-shooting-mexican-immigrant-chicago-video" target="_blank" rel="noopener">the Chicago Sun-Times</a> reported.</p>
+<p>In both cases, and in Good’s fatal shooting, federal prosecutors declined to bring charges over the shooting itself. Castro <a href="https://web.archive.org/web/2026/https://san.com/cc/feds-charge-ice-officer-with-lying-about-january-minneapolis-shooting/" target="_blank" rel="noopener">was indicted</a> in September. But he was only charged for lying about what happened after the assistant U.S. attorney on his case objected to his supervisors’ decision not to pursue civil rights charges and was fired.</p>
+<p>The Department of Justice’s Civil Rights Division made the same call in Good’s killing, declining to investigate it at all, a decision that led at least four top officials in the division <a href="https://web.archive.org/web/2026/https://san.com/cc/prosecutors-quit-after-doj-pushed-for-investigation-into-renee-goods-widow/" target="_blank" rel="noopener">to resign</a>. The DOJ then pushed Minnesota prosecutors to instead investigate Good’s widow’s alleged ties to activist groups, prompting six more resignations, including the office’s second in command.</p>
+<p>In González’s case, prosecutors also <a href="https://www.wbez.org/bearing-the-blitz/2026/09/11/ice-shooting-silverio-villegas-gonzalez-chicago-franklin-park" target="_blank" rel="noopener">declined to charge</a> the agent, but even that news only surfaced when DHS confirmed it a year later. DHS hasn’t released the agent’s name.</p>
+<h2>How the investigative process works</h2>
+<p>In most shootings involving federal agents, there is a process that takes place. ICE and Customs and Border Protection have their own Office of Professional Responsibility. Both offices are legally required to report every firearm discharge that causes death or injury to the DHS’s Office of Inspector General.</p>
+<p>But in Good’s case, that process was cut short. FBI agents and Minnesota investigators had begun a joint probe and obtained a warrant to collect evidence from her vehicle. FBI Director Kash Patel and senior DOJ officials shut the investigation down, according to <a href="https://www.nytimes.com/2026/02/07/us/renee-good-investigation-minnesota-trump.html" target="_blank" rel="noopener">The New York Times</a>, barring Minnesota from pursuing its own.</p>
+<p>DHS said that it’s leading the Austin investigation into its own officer, according to <a href="https://www.theguardian.com/us-news/2026/sep/21/ice-shooting-austin-texas-venezuelan-man" target="_blank" rel="noopener">The Guardian</a>. It’s unclear if the agent was wearing a body camera. Austin’s mayor has called for an independent probe, the same request that stalled in Minneapolis and Chicago.</p>
+        <p class="endmark" aria-hidden="true">■</p>
+        <div class="provenance">
+          <p>This story was originally published by <strong>Straight Arrow News</strong> on Sept. 21, 2026, and updated Oct. 9, 2026, with reporting by Devin Pavlou and Cassandra Buchman. Straight Arrow News shut down in November 2026, and I’ve republished my reporting here so it stays available. Photos from the original story are not included.</p>
+          <!-- Add the Wayback Machine link to the original here once you find it, e.g.:
+          <a href="https://web.archive.org/web/2026/https://san.com/cc/SLUG/" target="_blank" rel="noopener">See the archived original on the Wayback Machine ↗</a> -->
+        </div>
+      </div>
+      <aside class="art-side">
+        <section class="box wtsm" aria-labelledby="wtsm-h"><h2 id="wtsm-h">Why this story matters</h2><p>A documented pattern of shootings by federal immigration agents, disputed official accounts and blocked local investigations has created conditions where standard law enforcement accountability mechanisms are not functioning as they normally would.</p><ol><li><strong>Local oversight is being blocked</strong><span>In Austin, the local police department said it has not been allowed to see the case, mirroring outcomes in Minneapolis and Chicago where independent probes stalled.</span></li><li><strong>Official accounts have been disputed</strong><span>In at least two cases, video evidence contradicted federal agents' official reports on shootings, leading to criminal charges in one instance for lying, not the shooting itself.</span></li><li><strong>Federal review processes were cut short</strong><span>According to The New York Times, FBI Director Kash Patel and senior DOJ officials shut down a joint investigation into one shooting and barred Minnesota from pursuing its own.</span></li></ol></section>
+        <section class="box note"><h2>Reporter’s note</h2><p>I built the dataset and interactive map behind this story to answer one question: how often is this happening?</p></section>
+        <section class="box sources"><h2>Sources</h2><ol>
+          <li><a href="https://datahub.thetrace.org/dataset/federal-immigration-agent-shootings/#live-data" target="_blank" rel="noopener">Gun Violence Data Hub</a></li>
+          <li><a href="https://www.dhs.gov/news/2026/01/15/dhs-releases-more-details-about-three-violent-criminal-illegal-aliens-who-violently" target="_blank" rel="noopener">Department of Homeland Security</a></li>
+          <li><a href="https://chicago.suntimes.com/the-watchdogs/2025/09/22/ice-officer-injuries-nothing-major-deadly-franklin-park-shooting-mexican-immigrant-chicago-video" target="_blank" rel="noopener">Chicago Sun-Times</a></li>
+          <li><a href="https://www.wbez.org/bearing-the-blitz/2026/09/11/ice-shooting-silverio-villegas-gonzalez-chicago-franklin-park" target="_blank" rel="noopener">WBEZ</a></li>
+          <li><a href="https://www.nytimes.com/2026/02/07/us/renee-good-investigation-minnesota-trump.html" target="_blank" rel="noopener">The New York Times</a></li>
+        </ol></section>
+        <section class="box author">
+          <img src="../headshot-square.jpg" alt="Devin Pavlou" width="72" height="72">
+          <div><h2>Devin Pavlou</h2><p>Tech &amp; trust reporter covering AI, surveillance and verification. Open to remote reporting roles.</p>
+          <p class="author-links"><a href="mailto:hello@devinpavlou.com">hello@devinpavlou.com</a> · <a href="../resume.pdf">Resume</a></p></div>
+        </section>
+      </aside>
+    </div>
+  </article>
+
+  <nav class="pager" aria-label="More stories">
+    <a href="ice-robot-dogs.html"><span>← Previous</span>What ICE plans to do with its new $1.3M robot dogs</a>
+    <a href="smart-glasses.html" class="next"><span>Next →</span>Smart glasses helped a man see the world. The privacy panic took it away</a>
+  </nav>
+
+  <section class="more-reporting" aria-labelledby="more-h">
+    <h2 id="more-h" class="label">More of my reporting</h2>
+    <div class="more-grid"><a class="more-item" href="ice-robot-dogs.html"><span class="kicker">Accountability</span><span class="more-h">What ICE plans to do with its new $1.3M robot dogs</span><span class="byline">Sept. 29, 2026</span></a><a class="more-item" href="iran-school-strike.html"><span class="kicker">Government oversight</span><span class="more-h">Staff cuts, oversight failure to blame in Iran school strike, not faulty AI targeting: Ex-Pentagon official</span><span class="byline">Oct. 16, 2026</span></a><a class="more-item" href="beef-fact-check.html"><span class="kicker">Fact-check</span><span class="more-h">Viral post claims Trump is buying contaminated beef. Here’s what we found</span><span class="byline">Aug. 25, 2026</span></a></div>
+    <a class="btn" href="../#work">See all my work</a>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Devin Pavlou</span><a href="../">devinpavlou.com</a></div></footer>
+</body>
+</html>
